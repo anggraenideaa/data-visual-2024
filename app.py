@@ -90,12 +90,9 @@ fig = px.scatter(
 # Display the plot using Streamlit with tabs for different themes
 tab1, tab2 = st.columns(2)
 with tab1:
-    # Use the Streamlit theme (default).
+    # Use the Streamlit theme (default) and fill the container width.
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
-with tab2:
-    # Use the native Plotly theme.
-    st.plotly_chart(fig, theme=None, use_container_width=True)
 
 
 
