@@ -72,20 +72,22 @@ st.pyplot(fig)
 
 
 #Visual 5
-# Add histogram data
-x1 = np.random.randn(200) - 2
-x2 = np.random.randn(200)
-x3 = np.random.randn(200) + 2
+# Select only data for female and male
+female_data = data[data['sex'] == 'Female']['total_bill']
+male_data = data[data['sex'] == 'Male']['total_bill']
 
-# Group data together
-hist_data = [x1, x2, x3]
+# Create histogram using Matplotlib
+plt.hist([female_data, male_data], bins=20, label=['Female', 'Male'])
 
-group_labels = ['Group 1', 'Group 2', 'Group 3']
+# Adding labels and title
+plt.xlabel('Total Bill')
+plt.ylabel('Frequency')
+plt.title('Total Bill Histogram by Gender')
 
-# Create distplot with custom bin_size
-fig = ff.create_distplot(
-        hist_data, group_labels, bin_size=[.1, .25, .5])
+# Adding legend
+plt.legend()
 
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
+# Show the plot
+st.pyplot()
+
 
