@@ -6,18 +6,43 @@ import matplotlib.pyplot as plt
 # Menampilkan teks statis
 st.text("Visualisasi Data dengan data Tips.csv")
 
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Menampilkan teks statis
+st.text("Visualisasi Data dengan data Tips.csv")
+
 # reading the database
 data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
 
-# Scatter plot with day against tip
-plt.scatter(data['day'], data['tip'])
+# Create a scatter plot
+fig, ax = plt.subplots()
+ax.scatter(data['day'], data['tip'])
 
 # Adding Title to the Plot
-plt.title("Scatter Plot")
+ax.set_title("Scatter Plot")
 
 # Setting the X and Y labels
-plt.xlabel('Day')
-plt.ylabel('Tip')
+ax.set_xlabel('Day')
+ax.set_ylabel('Tip')
 
-plt.show()
+# Display the plot in Streamlit
+st.pyplot(fig)
+
+
+# # reading the database
+# data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
+
+# # Scatter plot with day against tip
+# plt.scatter(data['day'], data['tip'])
+
+# # Adding Title to the Plot
+# plt.title("Scatter Plot")
+
+# # Setting the X and Y labels
+# plt.xlabel('Day')
+# plt.ylabel('Tip')
+
+# plt.show()
 
