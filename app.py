@@ -42,8 +42,7 @@ plt.ylabel('Tip')
 # plt.show()  # Not needed in Streamlit
 
 #VISUALISASI 3
-
-data = pd.read_csv("tips.csv")
+# Create scatter plot using Plotly Express
 fig = px.scatter(
     data,
     x="day",
@@ -53,9 +52,12 @@ fig = px.scatter(
     color_continuous_scale="reds",
 )
 
-tab1, tab2 = st.columns(2)
-with tab1:
+# Display the plot using Streamlit in one tab
+with st.expander("Plotly Chart", expanded=True):
+    # Use the Streamlit theme (default).
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+
 
 
 #Visualisasi 4
