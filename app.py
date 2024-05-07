@@ -26,13 +26,6 @@ st.pyplot(fig)
 
 
 #VISUALISASI 2
-import pandas as pd
-import matplotlib.pyplot as plt
-
-
-# reading the database
-data = pd.read_csv("tips.csv")
-
 # Scatter plot with day against tip
 plt.scatter(data['day'], data['tip'], c=data['size'], 
 			s=data['total_bill'])
