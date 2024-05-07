@@ -72,22 +72,30 @@ st.pyplot(fig)
 
 
 #Visual 5
-# Select only data for female and male
-female_data = data[data['sex'] == 'Female']['total_bill']
-male_data = data[data['sex'] == 'Male']['total_bill']
+# Load sample dataset from Plotly Express
+df = px.data.gapminder()
 
-# Create histogram using Matplotlib
-plt.hist([female_data, male_data], bins=20, label=['Female', 'Male'])
+# Create scatter plot using Plotly Express
+fig = px.scatter(
+    df.query("year==2007"),
+    x="gdpPercap",
+    y="lifeExp",
+    size="pop",
+    color="continent",
+    hover_name="country",
+    log_x=True,
+    size_max=60,
+)
 
-# Adding labels and title
-plt.xlabel('Total Bill')
-plt.ylabel('Frequency')
-plt.title('Total Bill Histogram by Gender')
+# Display the plot using Streamlit with tabs for different themes
+tab1, tab2 = st.columns(2)
+with tab1:
+    # Use the Streamlit theme (default).
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
-# Adding legend
-plt.legend()
+with tab2:
+    # Use the native Plotly theme.
+    st.plotly_chart(fig, theme=None, use_container_width=True)
 
-# Show the plot
-st.pyplot()
 
 
