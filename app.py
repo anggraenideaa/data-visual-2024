@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Menampilkan teks statis
-st.markdown("<h3>Visualisasi Data dengan data Tips.csv</h3>", unsafe_allow_html=True)
+st.subheader("Visualisasi Data dengan data Tips.csv")
+st.subheader("")
 
 #VISUALISASI 1
 # reading the database
@@ -38,7 +39,6 @@ plt.ylabel('Tip')
 
 #VISUALISASI 3
 import plotly.express as px
-st.subheader("Define a custom colorscale")
 data = pd.read_csv("tips.csv")
 fig = px.scatter(
     data,
