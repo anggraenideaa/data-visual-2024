@@ -1,10 +1,10 @@
-# Menampilkan teks statis
-st.text("Visualisasi Data dengan data Tips.csv")
 
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Menampilkan teks statis
+st.text("Visualisasi Data dengan data Tips.csv")
 
 # reading the database
 data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
