@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Menampilkan teks statis
-st.markdown("**Visualisasi Data dengan data Tips.csv**")
+st.markdown("<h1>Visualisasi Data dengan data Tips.csv</h1>", unsafe_allow_html=True)
 
 # reading the database
 data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
