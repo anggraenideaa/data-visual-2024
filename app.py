@@ -63,38 +63,34 @@ with st.expander("Plotly Chart", expanded=True):
 
 
 #Visualisasi 4
+# histogram of total_bills
+plt.hist(data['total_bill'])
 
-# Generate random data
-arr = np.random.normal(1, 1, size=100)
+plt.title("Histogram")
 
-# Create a histogram using Matplotlib
-fig, ax = plt.subplots()
-ax.hist(arr, bins=20)
+# Show plot in Streamlit
+st.pyplot()
 
-# Display the histogram using Streamlit
-st.pyplot(fig)
+# #Visual 5
+# # Load sample dataset from Plotly Express
+# df = px.data.gapminder()
 
+# # Create scatter plot using Plotly Express
+# fig = px.scatter(
+#     df.query("year==2007"),
+#     x="gdpPercap",
+#     y="lifeExp",
+#     size="pop",
+#     color="continent",
+#     hover_name="country",
+#     log_x=True,
+#     size_max=60,
+# )
 
-#Visual 5
-# Load sample dataset from Plotly Express
-df = px.data.gapminder()
-
-# Create scatter plot using Plotly Express
-fig = px.scatter(
-    df.query("year==2007"),
-    x="gdpPercap",
-    y="lifeExp",
-    size="pop",
-    color="continent",
-    hover_name="country",
-    log_x=True,
-    size_max=60,
-)
-
-# Display the plot using Streamlit in one tab
-with st.expander("Plotly Chart", expanded=True):
-    # Use the Streamlit theme (default).
-    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+# # Display the plot using Streamlit in one tab
+# with st.expander("Plotly Chart", expanded=True):
+#     # Use the Streamlit theme (default).
+#     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 
 
