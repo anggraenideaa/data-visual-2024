@@ -1,20 +1,21 @@
 import pandas as pd
-import streamlit as st
 import matplotlib.pyplot as plt
 
+# Reading the database
+data = pd.read_csv("tips.csv")
 
-# reading the database
-data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
-data = pd.read_csv(url)
+# Create a figure and axis objects
+fig, ax = plt.subplots()
 
-# Scatter plot with day against tip
-plt.scatter(data['day'], data['tip'])
+# Scatter plot with size against tip
+ax.scatter(data['size'], data['tip'])
 
 # Adding Title to the Plot
-plt.title("Scatter Plot")
+ax.set_title("Scatter Plot")
 
 # Setting the X and Y labels
-plt.xlabel('Day')
-plt.ylabel('Tip')
+ax.set_xlabel('Size')
+ax.set_ylabel('Tip')
 
+# Show the plot
 plt.show()
