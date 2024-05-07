@@ -63,13 +63,21 @@ with st.expander("Plotly Chart", expanded=True):
 
 
 #Visualisasi 4
-# histogram of total_bills
-plt.hist(data['total_bill'])
+# Select the data for each group
+x1 = data[data['sex'] == 'Male']['total_bill']
+x2 = data[data['sex'] == 'Female']['total_bill']
 
-plt.title("Histogram")
+# Group data together
+hist_data = [x1, x2]
 
-# Show plot in Streamlit
-st.pyplot()
+group_labels = ['Male', 'Female']
+
+# Create distplot with custom bin_size
+fig = ff.create_distplot(hist_data, group_labels, bin_size=[10, 10])
+
+# Plot!
+st.plotly_chart(fig, use_container_width=True)
+
 
 # #Visual 5
 # # Load sample dataset from Plotly Express
