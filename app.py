@@ -64,20 +64,14 @@ with st.expander("Plotly Chart", expanded=True):
 
 #Visualisasi 4
 # Select the data for each group
-x1 = data[data['sex'] == 'Male']['total_bill']
-x2 = data[data['sex'] == 'Female']['total_bill']
+male_data = data[data['sex'] == 'Male']['total_bill']
+female_data = data[data['sex'] == 'Female']['total_bill']
 
-# Group data together
-hist_data = [x1, x2]
-
-group_labels = ['Male', 'Female']
-
-# Create distplot with custom bin_size
-fig = ff.create_distplot(hist_data, group_labels, bin_size=[10, 10])
+# Create a figure using Plotly Express
+fig = px.histogram(data, x='total_bill', color='sex', marginal='rug')
 
 # Plot!
 st.plotly_chart(fig, use_container_width=True)
-
 
 # #Visual 5
 # # Load sample dataset from Plotly Express
