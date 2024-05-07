@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -24,6 +23,22 @@ ax.set_ylabel('Tip')
 # Display the plot in Streamlit
 st.pyplot(fig)
 
+#VISUALISASI 2
+# Scatter plot with day against tip
+# plt.plot(data['tip'])
+# plt.plot(data['size'])
+
+# Create a line chart using Streamlit
+st.line_chart(data[['tip', 'size']])
+
+# Adding Title to the Plot
+plt.title("Scatter Plot")
+
+# Setting the X and Y labels
+plt.xlabel('Day')
+plt.ylabel('Tip')
+
+# plt.show()  # Not needed in Streamlit
 
 #VISUALISASI 2
 # Scatter plot with day against tip
