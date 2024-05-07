@@ -24,15 +24,11 @@ ax.set_ylabel('Tip')
 st.pyplot(fig)
 
 #VISUALISASI 2
-# Scatter plot with day against tip
-# plt.plot(data['tip'])
-# plt.plot(data['size'])
-
 # Create a line chart using Streamlit
 st.line_chart(data[['tip', 'size']])
 
 # Adding Title to the Plot
-plt.title("Scatter Plot")
+plt.title("Line Chart")
 
 # Setting the X and Y labels
 plt.xlabel('Day')
