@@ -37,6 +37,24 @@ plt.ylabel('Tip')
 # plt.show()  # Not needed in Streamlit
 
 #VISUALISASI 2
+st.subheader("Define a custom colorscale")
+data = pd.read_csv("tips.csv")
+fig = px.scatter(
+    data,
+    x="day",
+    y="tip",
+    color="size",
+    size="total_bill",
+    color_continuous_scale="reds",
+)
+
+tab1, tab2 = st.columns(2)
+with tab1:
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+with tab2:
+    st.plotly_chart(fig, theme=None, use_container_width=True)
+
+#Visualisasi 3
 # Scatter plot with day against tip
 plt.scatter(data['day'], data['tip'], c=data['size'], 
 			s=data['total_bill'])
