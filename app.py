@@ -36,7 +36,9 @@ plt.ylabel('Tip')
 
 # plt.show()  # Not needed in Streamlit
 
-#VISUALISASI 2
+#VISUALISASI 3
+
+import plotly.express as px
 st.subheader("Define a custom colorscale")
 data = pd.read_csv("tips.csv")
 fig = px.scatter(
