@@ -54,35 +54,16 @@ with tab1:
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 
-#Visualisasi 3
-# Scatter plot with day against tip
-plt.scatter(data['day'], data['tip'], c=data['size'], 
-			s=data['total_bill'])
+#Visualisasi 4
+import numpy as np
 
-# Adding Title to the Plot
-plt.title("Scatter Plot")
+# Generate random data
+arr = np.random.normal(1, 1, size=100)
 
-# Setting the X and Y labels
-plt.xlabel('Day')
-plt.ylabel('Tip')
+# Create a histogram using Matplotlib
+fig, ax = plt.subplots()
+ax.hist(arr, bins=20)
 
-plt.colorbar()
-
-plt.show()
-
-
-# # reading the database
-# data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
-
-# # Scatter plot with day against tip
-# plt.scatter(data['day'], data['tip'])
-
-# # Adding Title to the Plot
-# plt.title("Scatter Plot")
-
-# # Setting the X and Y labels
-# plt.xlabel('Day')
-# plt.ylabel('Tip')
-
-# plt.show()
+# Display the histogram using Streamlit
+st.pyplot(fig)
 
