@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # reading the database
-url = "https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv"
+data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
 data = pd.read_csv(url)
 
 # Scatter plot with day against tip
