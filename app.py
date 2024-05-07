@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
+import numpy as np
+import plotly.figure_factory as ff
+
 
 # Menampilkan teks statis
 st.subheader("Visualisasi Data dengan data Tips.csv")
@@ -38,7 +42,7 @@ plt.ylabel('Tip')
 # plt.show()  # Not needed in Streamlit
 
 #VISUALISASI 3
-import plotly.express as px
+
 data = pd.read_csv("tips.csv")
 fig = px.scatter(
     data,
@@ -55,7 +59,6 @@ with tab1:
 
 
 #Visualisasi 4
-import numpy as np
 
 # Generate random data
 arr = np.random.normal(1, 1, size=100)
@@ -66,4 +69,23 @@ ax.hist(arr, bins=20)
 
 # Display the histogram using Streamlit
 st.pyplot(fig)
+
+
+#Visual 5
+# Add histogram data
+x1 = np.random.randn(200) - 2
+x2 = np.random.randn(200)
+x3 = np.random.randn(200) + 2
+
+# Group data together
+hist_data = [x1, x2, x3]
+
+group_labels = ['Group 1', 'Group 2', 'Group 3']
+
+# Create distplot with custom bin_size
+fig = ff.create_distplot(
+        hist_data, group_labels, bin_size=[.1, .25, .5])
+
+# Plot!
+st.plotly_chart(fig, use_container_width=True)
 
