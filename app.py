@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Reading the database
-data = pd.read_csv("tips.csv")
+data = pd.read_csv("https://raw.githubusercontent.com/anggraenideaa/data-visual-2024/master/tips.csv")
 
 # Create a figure and axis objects
 fig, ax = plt.subplots()
