@@ -88,10 +88,11 @@ fig = px.scatter(
 )
 
 # Display the plot using Streamlit with tabs for different themes
-tab1, tab2 = st.columns(2)
+tab1 = st.columns(2)
 with tab1:
-    # Use the Streamlit theme (default) and fill the container width.
-    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+    # Use the Streamlit theme (default) and set the width and height to '100%' to make it fullscreen.
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True, width="100%", height="100%")
+
 
 
 
