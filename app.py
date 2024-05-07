@@ -9,6 +9,8 @@ import plotly.figure_factory as ff
 # Menampilkan teks statis
 st.subheader("Visualisasi Data dengan data Tips.csv")
 st.subheader("")
+st.text("Nama : Dea Puspita Anggraeni")
+st.text("NPM : 21082020029")
 
 #VISUALISASI 1
 # reading the database
