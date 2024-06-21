@@ -217,15 +217,36 @@ with col1:
     # Fetch data for choropleth map
     choropleth_data = fetch_choropleth_data(country=None if selected_country == 'All' else selected_country)
     sales_territory_regions, total_sales = zip(*choropleth_data.values)
-    
 
-    st.markdown('<h2 style="font-size:20px; text-align:center;"></h2>', unsafe_allow_html=True)
-    st.markdown('<h2 style="font-size:20px; text-align:center;"></h2>', unsafe_allow_html=True)
-    st.markdown('<h2 style="font-size:20px; text-align:center;"></h2>', unsafe_allow_html=True)
     # Display choropleth map
     st.markdown('<h2 style="font-size:20px; text-align:center;">Penjualan Terdistribusi di Berbagai Wilayah Penjualan (SalesTerritoryregion)</h2>', unsafe_allow_html=True)
     fig = go.Figure(go.Choropleth(
         locations=sales_territory_regions,  # Menggunakan nama region sebagai locations
         z=total_sales,  # Menentukan nilai yang akan diplot sebagai warna
         locationmode='country names',  # Menggunakan mode nama negara
-        colorscale=[[0,
+        colorscale=[[0, "#543310"], [0.5, "#74512D"], [1, "#AF8F6F"]],  # Skala warna yang digunakan
+        colorbar_title='Total Sales',  # Judul color bar
+    ))
+
+    # Menyeting tampilan layout
+    fig.update_layout(
+        geo=dict(
+            showcoastlines=True,  # Menampilkan garis pantai
+            showland             showcoastlines=True,  # Menampilkan garis pantai
+            showland=True,  # Menampilkan area daratan
+            landcolor='white',  # Warna daratan
+            projection_type='mercator'  # Tipe proyeksi peta
+        )
+    )
+
+    # Menampilkan figure
+    st.plotly_chart(fig, use_container_width=True)
+
+with col2:
+    # Fetch treemap data based on selected country
+    treemap_data = fetch_treemap_data(country=None if selected_country == 'All' else selected_country)
+
+    # Display treemap using Plotly
+    st.markdown('<h2 style="font-size:20px; text-align:center;">Distribusi Penjualan Berdasarkan Kategori Produk</h2>', unsafe_allow_html=True)
+    fig = px.treemap(treemap_data, path=['ProductCategory'], values='TotalSales', color='TotalSales', color_continuous_scale='RdBu')
+    st.plotly_chart(fig, use_container_width=True)
